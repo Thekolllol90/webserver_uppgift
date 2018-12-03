@@ -18,7 +18,7 @@
             width: 500px;
             height: 500px;
             background-color:rgba(139,0,0,0.5);
-            margin-top: 250px;
+            margin-top: 100px;
             text-align: center;
         }
         #pic{
@@ -48,7 +48,7 @@
         #box2{
             margin-top: 40px;
         }
-    </style>ss
+    </style>
 </head>
 <body>
    <div id="container">
