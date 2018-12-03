@@ -51,23 +51,23 @@
         <form method="post" action="">
         <div class="text" id="box1">
            <p>Username: </p>
-            <input type="text" name="uname">
+            <input type="text" name="uname" required>
         </div>
         <div class="text" id="box2">
             <p>Fullname: </p>
-            <input type="text" name="name">
+            <input type="text" name="name" required>
         </div>
         <div class="text" id="box3" >
             <p>Age: </p>
-            <input type="number" min="0" max="120" name="age">
+            <input type="number" min="0" max="120" name="age" required>
         </div>
         <div class="text" id="box4">
             <p>Password: </p>
-            <input type="password" name="pas">     
+            <input type="password" name="pas" required>     
         </div>
         <div class="text" id="box5">
             <p>Email: </p>
-            <input type="email" name="mail">
+            <input type="email" name="mail" required>
         </div>
         <div class="text" id="box6">
             <input type="submit" name="sub" value="Submit">
@@ -83,11 +83,19 @@
             $pas = $_POST['pas'];
             $mail = $_POST['mail'];
             
-            $query = "INSERT INTO user (username,fullname,age,password,email) VALUES ('$uname','$name','$age','$pas','$mail')";
+            $query = "SELECT * FROM user WHERE username = '$uname'";
             
-            mysqli_query($dbc_form,$query);
+            $result = mysqli_query($dbc_form,$query);
             
-            header("location: Home.php");
+            if(mysqli_num_rows($result) > 0){
+                header("location: Register.php?error=finns_redan");
+            }else {
+                $query = "INSERT INTO user (username,fullname,age,password,email) VALUES ('$uname','$name','$age','$pas','$mail')";
+            
+                mysqli_query($dbc_form,$query);
+            
+                header("location: Home.php");
+            }
         }
         ?>
        </div>
