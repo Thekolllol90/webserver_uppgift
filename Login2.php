@@ -48,13 +48,13 @@
         #box2{
             margin-top: 40px;
         }
-    </style>ss
+    </style>
 </head>
 <body>
    <div id="container">
     <div id="box">
         <img src="pic.jpg" height="80px" id="pic">
-        <a href="Loggin.php"><div class="button" id="box1"><p>Login</p></div></a>
+        <a href="Login(2).php"><div class="button" id="box1"><p>Login</p></div></a>
         <a href="Register.php"><div class="button" id="box2"><p>Register</p></div></a>
     </div>
    </div>
